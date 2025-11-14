@@ -1,6 +1,10 @@
 import React from 'react';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onGetStarted?: () => void;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted }) => {
   return (
     <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-white opacity-90"></div>
@@ -19,8 +23,11 @@ const HeroSection: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
-                Solicitar Cotação
+              <button
+                onClick={onGetStarted}
+                className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"
+              >
+                Área do Cliente
               </button>
               <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transform hover:scale-105 transition-all duration-200">
                 Saiba Mais
