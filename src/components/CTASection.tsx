@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const CTASection: React.FC = () => {
+interface CTASectionProps {
+  onGetStarted?: () => void;
+}
+
+const CTASection: React.FC<CTASectionProps> = ({ onGetStarted }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -219,8 +223,11 @@ const CTASection: React.FC = () => {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Ações Rápidas</h3>
               <div className="space-y-4">
-                <button className="w-full px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-left flex items-center justify-between group">
-                  <span>Solicitar Cotação Online</span>
+                <button
+                  onClick={onGetStarted}
+                  className="w-full px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-left flex items-center justify-between group"
+                >
+                  <span>Área do Cliente</span>
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                   </svg>
